@@ -16,7 +16,7 @@ var fn = {
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
-		
+		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
@@ -53,10 +53,10 @@ var fn = {
 			
 			window.location.href="#inicio";
 		}
-		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
+		fn.quitarClases();
 	},
 	enviarSesion: function(usuario, password){
-		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
+		fn.quitarClases();
 		//alert("Enviando datos");
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		if(networkInfo.estaConectado() == false){
@@ -75,7 +75,6 @@ var fn = {
 				if(mensaje != "0"){
 					window.localStorage.setItem("nombreUsuario", usuario);
 					$("#usuario").html(usuario);
-					$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
 					window.location.href="#inicio";
 				}else{
 					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
@@ -123,6 +122,12 @@ var fn = {
 			}
 		}
 		bcs.abrirCamara();
+	},
+	quitarClases: function(){
+		$("#fotoTomadaRegistro").removeClass("ui-li-static");
+		$("#fotoTomadaRegistro").removeClass("ui-body-inherit");
+		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
+		$("#fotoTomadaRegistro").removeClass("ui-last-child");
 	}
 };
 /*
@@ -135,4 +140,3 @@ var fn = {
  */
 //
 fn.deviceready();
-$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
