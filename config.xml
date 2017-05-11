@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.cae3076.Modulacion"
+        version     = "1.0.1"
+        versionCode = "1" >
+		<!-- versionCode is optional and Android only -->
+		
+      	<!--<preference name="phonegap-version" value="3.7.0" />-->
+		<platform name="ios">
+			<preference name="phonegap-version" value="3.7.0" />
+		</platform>
+      	<platform name="android">
+      		<preference name="phonegap-version" value="cli-6.5.0" />
+      	</platform>
+       	
+        <preference name="SplashScreenDelay" value="5000" />
+
+        <name>Modulación</name>
+		<description>
+            Aplicación de para leer código de barras de pedimento.
+        </description>
+		<author href="#" email="sistemas_cae@cae3076.com">
+            Sistemas CAE
+        </author>
+        
+        <icon src="img/icon/android/icono2.png" />
+        <icon src="img/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
+        <icon src="img/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
+        <icon src="img/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />
+        <icon src="img/icon/ios/icon-72-2x.png"         gap:platform="ios"        width="144" height="144" />
+		<splash src="img/cae-loe-splash.png" platform="android"/>
+        <gap:splash src="img/splash/ios/splash.png" gap:platform="ios"/>
+
+        <gap:plugin name="cordova-plugin-whitelist" source="npm"/>
+        <gap:plugin name="com.phonegap.plugins.barcodescanner" source="npm"/>
+        <gap:plugin name="org.apache.cordova.network-information" source="npm"/>
+        <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
+        <gap:plugin name="cordova-plugin-x-toast" source="npm" />
+        <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
+
+        <access origin="*"/>
+        <allow-intent href="*"/>
+        <allow-navigation href="*"/>
+    </widget>

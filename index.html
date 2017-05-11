@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Modulación</title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+	</head>
+	<body>
+	<div id="inicioSesion" data-role="page">
+		<div data-role="header">
+			<h1>Iniciar Sesión</h1>
+		</div>
+		<div class="ui-content" id="contenido">
+			<ul data-role="listview">
+				<li data-role="list-divider">
+					Usuario
+				</li>
+				<li>
+					<input type="text" id="usuarioSesion" placeholder="Usuario">
+				</li>
+				<li data-role="list-divider">
+					Contraseña
+				</li>
+				<li>
+					<input type="password" id="passwordSesion" placeholder="Contraseña">
+				</li>
+			</ul>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li>
+						<a id="botonIniciarSesion" href="#" class="ui-btn-active">
+							Iniciar Sesión
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div id="inicio" data-role="page">
+		<div data-role="header">
+			<h1>Modulación</h1>
+			<a href="#" id="usuario">
+				
+			</a>
+			<a href="#" id="botonCerrarSesion"  data-icon="delete">
+				&nbsp;Salir
+			</a>
+		</div>
+		<div class="ui-content" id="contenido2">
+			<div data-role="content">
+				<div data-role="navbar" class="ui-body-b">
+					<ul>
+						<li>
+							<a href="#" id="botonEscanea"  data-icon="camera">
+								<img src="img/icono.png" >
+							</a>
+						</li>
+					</ul>
+				</div>	
+			</div>
+				
+		</div>
+		<div id="pieHome" data-role="footer" data-position="fixed">
+			<div class="datosFooter">&nbsp;</div>
+			<div class="datosFooter">Inform&aacute;tica CAE</div>
+			<div class="datosFooter">
+				<a href="#pendientes" id="botonPendientes" class="ui-btn">
+					&nbsp;Pendientes
+				</a>
+			</div>
+		</div>
+	</div>
+	<div id="pendientes" data-role="page">
+		<div data-role="header">
+			<h1>Historial</h1>
+			<a href="#" data-rel="back">
+				Atrás
+			</a>
+		</div>
+		<div class="ui-content">
+			<table class="informacion" width="100%" align="center">
+				<tr>
+						<th width="7%">#</th>
+						<th width="25%">Usuario</th>
+						<th width="43%">Pedimento</th>
+						<th width="25%">Pendiente Enviado</th>
+					</tr>	
+				<tbody id="listaPendientes">
+					
+				</tbody>
+			</table>
+		</div>
+		<div id="pieTabla" data-role="footer" data-position="fixed">
+			<div class="datosFooter">
+				<a href="#" id="botonEnviar" class="ui-btn">
+					&nbsp;Enviar
+				</a>
+			</div>
+			<div class="datosFooter">Pendientes</div>
+			<div class="datosFooter">
+				<a href="#" id="botonLimpiar" class="ui-btn">
+					&nbsp;Limpiar
+				</a>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="js/API/barcodeScanner.js"></script>
+	<script type="text/javascript" src="js/API/networkInformation.js"></script>
+	<script type="text/javascript" src="js/almacena.js"></script>
+	<script type="text/javascript" src="js/actions.js"></script>
+	</body>
+</html>
