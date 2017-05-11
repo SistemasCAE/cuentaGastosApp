@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
     <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap   = "http://phonegap.com/ns/1.0"
-        id          = "com.cae3076.Modulacion"
-        version     = "1.0.1"
+        id          = "com.cae3076.cuentaGastosApp"
+        version     = "1.0.0"
         versionCode = "1" >
 		<!-- versionCode is optional and Android only -->
 		
@@ -16,9 +16,9 @@
        	
         <preference name="SplashScreenDelay" value="5000" />
 
-        <name>Modulación</name>
+        <name>CuentaGastos</name>
 		<description>
-            Aplicación de para leer código de barras de pedimento.
+            Aplicación de para controlar la entrega de cuentas de gastos.
         </description>
 		<author href="#" email="sistemas_cae@cae3076.com">
             Sistemas CAE

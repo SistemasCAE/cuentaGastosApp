@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Modulación</title>
+		<title>Cuenta de Gastos</title>
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.icons-1.4.5.min.css">
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.inline-png-1.4.5.min.css">
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css">
@@ -43,7 +43,7 @@
 	</div>
 	<div id="inicio" data-role="page">
 		<div data-role="header">
-			<h1>Modulación</h1>
+			<h1>Cuenta de Gastos</h1>
 			<a href="#" id="usuario">
 				
 			</a>
@@ -51,19 +51,27 @@
 				&nbsp;Salir
 			</a>
 		</div>
-		<div class="ui-content" id="contenido2">
-			<div data-role="content">
-				<div data-role="navbar" class="ui-body-b">
-					<ul>
-						<li>
-							<a href="#" id="botonEscanea"  data-icon="camera">
-								<img src="img/icono.png" >
-							</a>
-						</li>
-					</ul>
-				</div>	
-			</div>
+		<div class="ui-content ui-body-b"  id="contenido2">
+			<ul data-role="listview">
+				<li>
+					<a href="#" id="botonEscanea"  data-icon="camera">
+						Escanear C&oacute;digo QR
+					</a>
+				</li>
+				<li>
+					<textarea id="observaciones" placeholder="Observaciones" cols="30" rows="30"></textarea>
+
+				</li>
+				<li>
+					<a href="#" id="botonTomarFoto"  data-icon="camera">
+						Tomar Foto
+					</a>
+				</li>
+				<li id="fotoTomadaRegistro">
+					<img id="foto" src="./img/sin-imagen.jpg">
+				</li>
 				
+			</ul>
 		</div>
 		<div id="pieHome" data-role="footer" data-position="fixed">
 			<div class="datosFooter">&nbsp;</div>
