@@ -84,3 +84,11 @@ body{
 #fotoTomadaRegistro img{
 	width: 95%;
 }
+#enviar{
+	text-align: right;
+}
+#botonEnviaDatos img{
+	margin-top: 15px;
+	margin-right: 10px;
+	width: 10%;
+}
