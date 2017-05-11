@@ -38,6 +38,8 @@
         <gap:plugin name="org.apache.cordova.vibration" source="npm"/>
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
+        <gap:plugin name="org.apache.cordova.media-capture" source="npm"/>
+        <gap:plugin name="org.apache.cordova.file-transfer" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
