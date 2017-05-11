@@ -50,9 +50,10 @@ var fn = {
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("nombreUsuario") != null){
 			$("#usuario").html(window.localStorage.getItem("nombreUsuario"));
-			$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
+			
 			window.location.href="#inicio";
 		}
+		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
 	},
 	enviarSesion: function(usuario, password){
 		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
