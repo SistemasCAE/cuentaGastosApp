@@ -55,6 +55,7 @@ var fn = {
 		}
 	},
 	enviarSesion: function(usuario, password){
+		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
 		//alert("Enviando datos");
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		if(networkInfo.estaConectado() == false){
@@ -133,3 +134,4 @@ var fn = {
  */
 //
 fn.deviceready();
+$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
