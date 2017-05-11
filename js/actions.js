@@ -17,12 +17,12 @@ var fn = {
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
-		$("#botonEnviaDatos").tap(fn.enviarDatos);
+		$("#botonEnviaDatos").tap(fn.comprobarDatos);
 		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
-	enviarDatos: function(){
+	comprobarDatos: function(){
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
 		var imagen = $("#fotoTomadaRegistro img").attr("src");
@@ -36,10 +36,46 @@ var fn = {
 			if(imagen == "img/sin-imagen.jpg"){
 				throw new Error("No ha tomado ninguna foto");
 			}
-			//fn.enviarSesion(usuario, password);
+			fn.enviarDatos(datoEscaneado, observaciones, imagen);
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
+	},
+	enviarDatos: function(datoEscaneado, observaciones, imagen){
+		fn.quitarClases();
+		//alert("Enviando datos");
+		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
+		if(networkInfo.estaConectado() == false){
+			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
+			//alert("No existe conexión a internet, revisela e intente de nuevo");
+		}else{
+			$.ajax({
+				method: "POST",
+				url: "http://intranet.cae3076.com:50000/CursoAndroid/guardaCG.php",
+				data: { 
+					informacion: datoEscaneado,
+					observaciones: observaciones
+				}
+			}).done(function(mensaje){
+				//alert("Datos enviados");
+				if(mensaje != "0"){
+					file.transferir(imagen);
+					window.location.href="#inicio";
+				}else{
+					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+				}
+
+
+				//alert(mensaje);
+				//fn.sleep(3000);
+				//bcs.abrirCamara().delay( 3000 );
+			}).fail(function(error){
+				alert(error.status);
+				alert(error.message);
+				alert(error.responseText);
+			});
+		}
+		
 	},
 	onBackKeyDown: function(){
 		// Handle the back button

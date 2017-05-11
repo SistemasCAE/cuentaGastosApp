@@ -21,6 +21,6 @@ var file = {
 			Connection: "close"
 		};
 		var ft = new FileTransfer();
-		ft.upload(fileURL, encodeURI("http://www.colors.edu.mx/archivoTest.php"), file.exito, file.error, options);
+		ft.upload(fileURL, encodeURI("http://intranet.cae3076.com:50000/CursoAndroid/guardaCG.php"), file.exito, file.error, options);
 	}
 }
