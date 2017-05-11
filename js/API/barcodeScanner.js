@@ -13,7 +13,7 @@ var bcs = {
 						fn.sleep(2500);
 						//alert("No existe conexión a internet, revisela e intente de nuevo");
 					}else{
-						fn.enviarRegistro(result.text);
+						bcs.escaneo = result.text;
 					}
 				  }
 			  },

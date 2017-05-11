@@ -17,9 +17,13 @@ var fn = {
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
+		$("#botonEnviaDatos").tap(fn.mostrar);
 		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
+	},
+	mostrar: function(){
+		alert(bcs.escaneo);
 	},
 	onBackKeyDown: function(){
 		// Handle the back button
