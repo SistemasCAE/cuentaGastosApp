@@ -16,7 +16,7 @@ var fn = {
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
-		$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
+		
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
@@ -50,6 +50,7 @@ var fn = {
 	compruebaSesion: function(){
 		if(window.localStorage.getItem("nombreUsuario") != null){
 			$("#usuario").html(window.localStorage.getItem("nombreUsuario"));
+			$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
 			window.location.href="#inicio";
 		}
 	},
@@ -72,6 +73,7 @@ var fn = {
 				if(mensaje != "0"){
 					window.localStorage.setItem("nombreUsuario", usuario);
 					$("#usuario").html(usuario);
+					$("#fotoTomadaRegistro").removeClass("ui-li-has-thumb");
 					window.location.href="#inicio";
 				}else{
 					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
