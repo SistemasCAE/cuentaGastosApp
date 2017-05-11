@@ -17,13 +17,29 @@ var fn = {
 		$("#botonPendientes").tap(almacena.cargarDatosPendientes);
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
-		$("#botonEnviaDatos").tap(fn.mostrar);
+		$("#botonEnviaDatos").tap(fn.enviarDatos);
 		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
-	mostrar: function(){
-		alert(bcs.escaneo);
+	enviarDatos: function(){
+		var datoEscaneado = bcs.escaneo;
+		var observaciones = $("#observaciones").val();
+		var imagen = $("#fotoTomadaRegistro img").attr("src");
+		try{
+			if(datoEscaneado === undefined){
+				throw new Error("Favor de escanear el código");
+			}
+			if(observaciones == ""){
+				throw new Error("No ha indicado ninguna observación");
+			}
+			if(imagen == "img/sin-imagen.jpg"){
+				throw new Error("No ha tomado ninguna foto");
+			}
+			//fn.enviarSesion(usuario, password);
+		}catch(error){
+			window.plugins.toast.show(error, 'short', 'center');
+		}
 	},
 	onBackKeyDown: function(){
 		// Handle the back button
