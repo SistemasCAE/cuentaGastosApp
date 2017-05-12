@@ -92,3 +92,8 @@ body{
 	margin-right: 10px;
 	width: 15%;
 }
+#cargando div{
+	text-align: center;
+	background: white;
+	background-color: white;
+}
