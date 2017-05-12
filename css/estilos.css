@@ -96,4 +96,15 @@ body{
 	text-align: center;
 	background: white;
 	background-color: white;
+	position: absolute;
+	/*nos posicionamos en el centro del navegador*/
+	top:50%;
+	/*determinamos una anchura*/
+	
+	height:400px;
+	/*indicamos que el margen superior, es la mitad de la altura*/
+	margin-top:-200px;
+}
+#cargando div img{
+	height: 380px;
 }
