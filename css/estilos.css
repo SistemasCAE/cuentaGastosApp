@@ -101,10 +101,10 @@ body{
 	top:50%;
 	/*determinamos una anchura*/
 	
-	height:400px;
+	height:300px;
 	/*indicamos que el margen superior, es la mitad de la altura*/
-	margin-top:-200px;
+	margin-top:-150px;
 }
 #cargando div img{
-	height: 380px;
+	height: 90%;
 }
