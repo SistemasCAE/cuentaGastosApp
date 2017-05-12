@@ -1,8 +1,9 @@
 var file = {
 	exito: function(r){
-		alert(r.response);
-		window.localStorage.setItem("nombreUsuario", $("#nombreRegistro").val());
-		window.location.href="#home";
+		window.location.href="#inicio";
+		window.plugins.toast.show("Guardado correctamente", 'long', 'center');
+		//window.localStorage.setItem("nombreUsuario", $("#nombreRegistro").val());
+		//window.location.href="#home";
 	},
 
 	error: function(error){

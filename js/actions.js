@@ -63,7 +63,6 @@ var fn = {
 				//alert("Datos enviados");
 				if(mensaje != "0"){
 					file.transferir(imagen);
-					window.location.href="#inicio";
 				}else{
 					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
 				}
