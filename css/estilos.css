@@ -93,18 +93,21 @@ body{
 	width: 15%;
 }
 #cargando div{
-	text-align: center;
-	background: white;
-	background-color: white;
 	position: absolute;
 	/*nos posicionamos en el centro del navegador*/
 	top:50%;
+	left:50%;
 	/*determinamos una anchura*/
-	
-	height:300px;
+	width:200px;
+	/*indicamos que el margen izquierdo, es la mitad de la anchura*/
+	margin-left:-100px;
+	/*determinamos una altura*/
+	height:200px;
 	/*indicamos que el margen superior, es la mitad de la altura*/
-	margin-top:-150px;
+	margin-top:-100px;
+	
 }
 #cargando div img{
-	height: 90%;
+	height: 95%;
+	
 }
