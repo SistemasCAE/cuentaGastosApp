@@ -3,6 +3,7 @@ var mc = {
 		var path = mediaFiles[0].fullPath;
 		//alert(path.replace("file://", ""));
 		$("#fotoTomadaRegistro").html('<img src="'+path+'" >');
+		mc.tomada=path;
 	},
 
 	error: function(){
