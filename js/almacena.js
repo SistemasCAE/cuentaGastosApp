@@ -3,6 +3,7 @@ var almacena = {
 	usuario: null,
 	informacion: null,
 	estado: null,
+	foto_ruta: null,
 	conectarDB: function(){
 		return window.openDatabase("Modulacion", "1.0", "Modulacion", 200000);
 	},
@@ -13,19 +14,20 @@ var almacena = {
 		//alert("Exito");
 	},
 	//guardarReservasHistorial: function(th, np, nh, nd){
-	guardaPedimento: function(usu, inf, est){
+	guardaPedimento: function(usu, inf, est, foto){
 		almacena.db              = almacena.conectarDB();
 		almacena.usuario  		 = usu;
 		almacena.informacion     = inf;
 		almacena.estado 		 = est;
+		almacena.foto_ruta 		 = foto;
 		almacena.db.transaction(almacena.tablaPendientes, almacena.error, almacena.exito);
 	},
 	tablaPendientes: function(tx){
 		// CREAR TABLA DE HISTORIAL
-		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, primary key(informacion))');
 
 		// INSERTAR LOS DATOS
-		tx.executeSql('INSERT INTO Pendientes (usuario, informacion, estado) VALUES ("'+almacena.usuario+'", "'+almacena.informacion+'", "'+almacena.estado+'")');
+		tx.executeSql('INSERT INTO Pendientes (usuario, informacion, estado) VALUES ("'+almacena.usuario+'", "'+almacena.informacion+'", "'+almacena.estado+'","'+almacena.foto_ruta+'")');
 	},
 
 	cargarDatosPendientes: function(){
@@ -35,7 +37,7 @@ var almacena = {
 
 	leerPendientes: function(tx){
 		// CREAR TABLA DE HISTORIAL SI NO EXISTE
-		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, primary key(informacion))');
 
 		// LEER DEL HISTORIAL
 		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.mostrarResultadosPendientes, null);
@@ -43,7 +45,7 @@ var almacena = {
 
 	mostrarResultadosPendientes: function(tx, res){
 		var cantidad = res.rows.length;
-		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
+		var resultado = '<tr><td colspan="4">No hay entregas pendientes</td></tr>';
 
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
@@ -91,7 +93,7 @@ var almacena = {
 
 	seleccionarPendientes: function(tx){
 		// CREAR TABLA DE HISTORIAL SI NO EXISTE
-		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto,  primary key(informacion))');
 
 		// LEER DEL HISTORIAL
 		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.enviarPendientes, null);
@@ -156,7 +158,7 @@ var almacena = {
 	},
 	
 	hacerUpdate: function(tx, informacion, mensaje){
-		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto,  primary key(informacion))');
 		tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
 		almacena.cargarDatosPendientes();
 	},
@@ -167,7 +169,7 @@ var almacena = {
 	},
 	
 	limipiarTabla: function(tx){
-		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, primary key(informacion))');
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto,  primary key(informacion))');
 		tx.executeSql('DELETE FROM Pendientes WHERE  usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
 		almacena.cargarDatosPendientes();
 	},

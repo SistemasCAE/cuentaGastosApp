@@ -45,11 +45,9 @@ var fn = {
 	enviarDatos: function(datoEscaneado, observaciones, imagen){
 		fn.quitarClases();
 		window.location.href="#cargando";
-		//alert("Enviando datos");
-		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		if(networkInfo.estaConectado() == false){
-			window.plugins.toast.show("No existe conexión a internet, revisela e intente de nuevo", 'long', 'center');
-			//alert("No existe conexión a internet, revisela e intente de nuevo");
+			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
+			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),result.text, "", mediaFiles[0].fullPath);
 			window.location.href="#inicio";
 		}else{
 			$.ajax({
@@ -68,9 +66,7 @@ var fn = {
 				}
 
 
-				//alert(mensaje);
-				//fn.sleep(3000);
-				//bcs.abrirCamara().delay( 3000 );
+				
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);
