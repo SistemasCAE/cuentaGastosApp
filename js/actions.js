@@ -47,8 +47,9 @@ var fn = {
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
+			var foto_tomada = mc.tomada;
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
-			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, "", mediaFiles[0].fullPath);
+			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, "", foto_tomada);
 			window.location.href="#inicio";
 		}else{
 			$.ajax({
