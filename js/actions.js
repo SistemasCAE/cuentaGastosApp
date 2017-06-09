@@ -46,8 +46,9 @@ var fn = {
 		fn.quitarClases();
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
+			var escaneado = bcs.escaneo;
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
-			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),result.text, "", mediaFiles[0].fullPath);
+			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, "", mediaFiles[0].fullPath);
 			window.location.href="#inicio";
 		}else{
 			$.ajax({
