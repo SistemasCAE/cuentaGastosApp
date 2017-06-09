@@ -27,7 +27,7 @@ var almacena = {
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, primary key(informacion))');
 
 		// INSERTAR LOS DATOS
-		tx.executeSql('INSERT INTO Pendientes (usuario, informacion, estado) VALUES ("'+almacena.usuario+'", "'+almacena.informacion+'", "'+almacena.estado+'","'+almacena.foto_ruta+'")');
+		tx.executeSql('INSERT INTO Pendientes (usuario, informacion, estado, foto) VALUES ("'+almacena.usuario+'", "'+almacena.informacion+'", "'+almacena.estado+'","'+almacena.foto_ruta+'")');
 	},
 
 	cargarDatosPendientes: function(){
@@ -101,7 +101,7 @@ var almacena = {
 
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
-		var resultado = '<tr><td colspan="4">No hay pedimentos pendientes</td></tr>';
+		var resultado = '<tr><td colspan="4">No hay entregas pendientes</td></tr>';
 		//alert("Primer paso: " + cantidad.toString());
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
