@@ -9,6 +9,7 @@ var bcs = {
 					//		"Result: " + result.text);
 					if(networkInfo.estaConectado() == false){
 						window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
+						bcs.escaneo = result.text;
 						//almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),result.text,"");
 					}else{
 						bcs.escaneo = result.text;
