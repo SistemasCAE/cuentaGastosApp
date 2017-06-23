@@ -60,7 +60,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td>"+est+"</td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td>"+est+"<input type='hidden' class='foto' value='"+img+"'></td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
@@ -68,12 +68,13 @@ var almacena = {
 		$("#listaPendientes").html(resultado);
 		$("#folio1").tap(almacena.mostrarPopUp);
 		$(".folio").tap(almacena.mostrarPopUp);
+		
 	},
 	mostrarPopUp : function()
 	{
-		var foto_tomada = mc.tomada;
+		var foto_tomada_1 = $(".foto").val();
 		$("#popup").popup("open");
-		$("#popupfoto img").attr("src" , foto_tomada);
+		$("#popupfoto img").attr("src" , foto_tomada_1);
 	},
 	consultaDatosPendientes: function(){
 		if(networkInfo.estaConectado() == false){
