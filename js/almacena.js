@@ -57,8 +57,8 @@ var almacena = {
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				//var vectorInfo = inf.trim().split("\n");
-				/*if(vectorInfo.length == 12){
+				var vectorInfo = inf.trim().split("\n");
+				if(vectorInfo.length == 12){
 					var patente 	= vectorInfo[0].trim();
 					var pedimento 	= vectorInfo[1].trim();
 					if(patente.length != 4){
@@ -71,8 +71,8 @@ var almacena = {
 				}else{
 					inf = "No encontrado";
 					est = "Datos invalidos";
-				}*/
-				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td></tr>';
+				}
+				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td><a href="#" id="folio">'+inf+'</a></td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
