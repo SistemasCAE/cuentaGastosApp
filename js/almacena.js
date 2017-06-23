@@ -60,7 +60,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td><img src='"+img+"'></td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' urlImagen='"+img+"'>"+inf+"</a></td><td><img src='"+est+"'></td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
@@ -72,7 +72,7 @@ var almacena = {
 	},
 	mostrarPopUp : function()
 	{
-		var foto_tomada_1 = $(".foto").val();
+		var foto_tomada_1 = $(this).attr("urlImagen");
 		$("#popup").popup("open");
 		$("#popupfoto img").attr("src" , foto_tomada_1);
 	},
