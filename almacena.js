@@ -54,12 +54,11 @@ var almacena = {
 			for( var i = 0; i < cantidad; i++){
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
-				var est = res.rows.item(i).estado;
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				var vectorInfo = inf.trim().split("\n");
-				if(vectorInfo.length == 12){
+				//var vectorInfo = inf.trim().split("\n");
+				/*if(vectorInfo.length == 12){
 					var patente 	= vectorInfo[0].trim();
 					var pedimento 	= vectorInfo[1].trim();
 					if(patente.length != 4){
@@ -72,8 +71,8 @@ var almacena = {
 				}else{
 					inf = "No encontrado";
 					est = "Datos invalidos";
-				}
-				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td><td>'+est+'</td></tr>';
+				}*/
+				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td>'+inf+'</td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
