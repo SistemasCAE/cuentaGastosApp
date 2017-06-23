@@ -18,7 +18,6 @@ var fn = {
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
 		$("#botonEnviaDatos").tap(fn.comprobarDatos);
-		
 		$("#folio").tap(almacena.mostrarPopUp);
 		
 		fn.quitarClases();

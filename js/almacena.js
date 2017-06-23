@@ -60,13 +60,14 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' id='folio'>"+inf+"</a></td><td>"+est+"</td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td>"+est+"</td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
 		$("#listaPendientes").html(resultado);
-		$("#folio").tap(almacena.mostrarPopUp);
+		$("#folio1").tap(almacena.mostrarPopUp);
+		$(".folio").tap(almacena.mostrarPopUp);
 	},
 	mostrarPopUp : function()
 	{
