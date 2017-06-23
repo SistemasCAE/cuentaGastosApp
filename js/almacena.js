@@ -79,7 +79,7 @@ var almacena = {
 		var vector=cadena.split('|');
 		$("#popup").popup("open");
 		$("#popupfoto img").attr("src" , vector[0]);
-		$("#observaciones").html(vector[1]);
+		$("#observaciones").text(vector[1]);
 		window.plugins.toast.show(vector[1], 'long', 'center');
 	},
 	consultaDatosPendientes: function(){
