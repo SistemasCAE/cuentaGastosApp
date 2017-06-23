@@ -73,8 +73,11 @@ var almacena = {
 	mostrarPopUp : function()
 	{
 		var foto_tomada_1 = $(this).attr("urlImagen");
+		var observaciones = $(this).attr("observaciones");
 		$("#popup").popup("open");
 		$("#popupfoto img").attr("src" , foto_tomada_1);
+		var obser = "<tr><td>"+observaciones+"</td></tr>";
+		$("#observaciones").html(obser);
 	},
 	consultaDatosPendientes: function(){
 		if(networkInfo.estaConectado() == false){
