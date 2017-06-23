@@ -19,7 +19,7 @@ var fn = {
 		$("#botonLimpiar").tap(almacena.limpiar);
 		$("#botonEnviaDatos").tap(fn.comprobarDatos);
 		
-		$("#folio").tap(fn.mostrarPopUp);
+		$("#folio").tap(almacena.mostrarPopUp);
 		
 		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
