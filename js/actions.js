@@ -25,12 +25,6 @@ var fn = {
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
-	mostrarPopUp : function()
-	{
-		var foto_tomada = mc.tomada;
-		$("#popup").popup("open");
-		$("#popupfoto img").attr("src" , foto_tomada);
-	},
 	comprobarDatos: function(){
 		
 		var datoEscaneado = bcs.escaneo;
