@@ -54,13 +54,13 @@ var almacena = {
 			for( var i = 0; i < cantidad; i++){
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
-				var est = res.rows.item(i).estado;
+				var obs = res.rows.item(i).estado;
 				var img = res.rows.item(i).foto;
 				if(est == ""){
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' urlImagen='"+img+"'>"+inf+"</a></td><td>'"+est+"'</td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' urlImagen='"+img+"' observaciones='"+obs+"'>"+inf+"</a></td><td>'"+obs+"'</td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
