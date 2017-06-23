@@ -65,8 +65,8 @@ var almacena = {
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
-		$("#botonEnviaDatos").tap(almacena.comprobarDatos);
 		$("#listaPendientes").html(resultado);
+		$("#folio").tap(almacena.mostrarPopUp);
 	},
 	mostrarPopUp : function()
 	{
