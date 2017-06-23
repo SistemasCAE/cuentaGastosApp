@@ -60,7 +60,7 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td>"+est+"<input type='hidden' class='foto' value='"+img+"'></td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio'>"+inf+"</a></td><td><img src='"+img+"'></td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
