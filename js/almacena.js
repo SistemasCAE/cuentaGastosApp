@@ -60,23 +60,39 @@ var almacena = {
 					est = "&nbsp;"
 				}
 				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' urlImagen='"+img+"' observaciones='"+obs+"'>"+inf+"</a></td><td>'"+obs+"'</td></tr>";
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' infoFolio='"+inf+"'>"+inf+"</a></td><td>'"+est+"'</td></tr>";
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
 		$("#listaPendientes").html(resultado);
-		$("#folio1").tap(almacena.mostrarPopUp);
-		$(".folio").tap(almacena.mostrarPopUp);
+		$(".folio").tap(almacena.consultaPopUp);
 		
 	},
-	mostrarPopUp : function()
+	consultaPopUp : function(tx)
 	{
-		var foto_tomada_1 = $(this).attr("urlImagen");
-		var observaciones = $(this).attr("observaciones");
+		var folio = $(this).attr("infoFolio");
+		// CREAR TABLA DE HISTORIAL SI NO EXISTE
+		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, primary key(informacion))');
+
+		// LEER DEL HISTORIAL
+		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'" AND informacion="'+folio+'"', [], almacena.mostrarPopUp, null);
+	},
+	mostrarPopUp : function(tx, res)
+	{
+		var cantidad = res.rows.length;
+		if(cantidad > 0){
+			// SI HAY RESERVAS EN EL HISTORIAL
+			resultado = '';
+
+			for( var i = 0; i < cantidad; i++){
+				var obs = res.rows.item(i).estado;
+				var img = res.rows.item(i).foto;
+			}
+		}
 		$("#popup").popup("open");
-		$("#popupfoto img").attr("src" , foto_tomada_1);
-		var obser = "<tr><td>"+observaciones+"</td></tr>";
+		$("#popupfoto img").attr("src" , img);
+		var obser = "<tr><td>"+obs+"</td></tr>";
 		$("#observaciones").html(obser);
 	},
 	consultaDatosPendientes: function(){
