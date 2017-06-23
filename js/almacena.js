@@ -54,6 +54,7 @@ var almacena = {
 			for( var i = 0; i < cantidad; i++){
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
+				var est = res.rows.item(i).estado;
 				if(est == ""){
 					est = "&nbsp;"
 				}
@@ -72,7 +73,7 @@ var almacena = {
 					inf = "No encontrado";
 					est = "Datos invalidos";
 				}
-				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td><a href="#" id="folio">'+inf+'</a></td></tr>';
+				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td><a href="#" id="folio">'+inf+'</a></td><td>'+est+'</td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
