@@ -18,9 +18,18 @@ var fn = {
 		$("#botonEnviar").tap(almacena.consultaDatosPendientes);
 		$("#botonLimpiar").tap(almacena.limpiar);
 		$("#botonEnviaDatos").tap(fn.comprobarDatos);
+		
+		$("#folio").tap(fn.mostrarPopUp);
+		
 		fn.quitarClases();
 		document.addEventListener("backbutton", fn.onBackKeyDown, false);
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
+	},
+	mostrarPopUp : function()
+	{
+		var foto_tomada = mc.tomada;
+		$("#popup").popup("open");
+		$("#popupfoto img").attr("src" , foto_tomada);
 	},
 	comprobarDatos: function(){
 		
