@@ -55,33 +55,25 @@ var almacena = {
 				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
+				var img = res.rows.item(i).foto;
 				if(est == ""){
 					est = "&nbsp;"
 				}
-				//var vectorInfo = inf.trim().split("\n");
-				/*if(vectorInfo.length == 12){
-					var patente 	= vectorInfo[0].trim();
-					var pedimento 	= vectorInfo[1].trim();
-					if(patente.length != 4){
-						est = "Datos invalidos";
-					}
-					if(pedimento.length != 7){
-						est = "Datos invalidos";
-					}
-					inf = patente+"-"+pedimento;
-				}else{
-					inf = "No encontrado";
-					est = "Datos invalidos";
-				}*/
 				est='No Enviado';
 				resultado += '<tr><td>'+(i+1).toString()+'</td><td>'+usu+'</td><td><a href="#" id="folio">'+inf+'</a></td><td>'+est+'</td></tr>';
 			}
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");
+		$("#botonEnviaDatos").tap(almacena.comprobarDatos);
 		$("#listaPendientes").html(resultado);
 	},
-	
+	mostrarPopUp : function()
+	{
+		var foto_tomada = mc.tomada;
+		$("#popup").popup("open");
+		$("#popupfoto img").attr("src" , foto_tomada);
+	},
 	consultaDatosPendientes: function(){
 		if(networkInfo.estaConectado() == false){
 			window.plugins.toast.show("No existe conexión a internet.", 'long', 'center');
