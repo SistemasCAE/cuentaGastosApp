@@ -13,16 +13,16 @@ var file = {
 		alert("Error al enviar foto al servidor.");
 	},
 
-	transferir: function(fileURL){
+	transferir: function(fileURL,folio){
 		var options = new FileUploadOptions();
 		options.fileKey = "foto";
-		options.fileName = "miFoto";
+		options.fileName = folio;
 		options.mimeType = "image/jpeg";
 		options.chunkedMode = false;
 		options.headers = {
 			Connection: "close"
 		};
 		var ft = new FileTransfer();
-		ft.upload(fileURL, encodeURI("http://intranet.cae3076.com:50000/CursoAndroid/guardaCG.php"), file.exito, file.error, options);
+		ft.upload(fileURL, encodeURI("http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php"), file.exito, file.error, options);
 	}
 }
