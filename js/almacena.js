@@ -110,8 +110,11 @@ var almacena = {
 			for( var i = 0; i < cantidad; i++){
 				almacena.resultado = "";
 				almacena.informacion2 = "";	
+				var usu = res.rows.item(i).usuario;
 				var inf = res.rows.item(i).informacion;
 				var est = res.rows.item(i).estado;
+				var img = res.rows.item(i).foto;
+				var obs = res.rows.item(i).observaciones;
 				if(est == ""){
 					est = "&nbsp;"
 				}
@@ -129,7 +132,7 @@ var almacena = {
 					est = "Datos invalidos";
 				}
 				if(est != "Datos invalidos"){
-					almacena.enviaAjax(inf);
+					almacena.enviaAjax(inf,img,obs);
 					
 				}
 				//alert("Termina envio primero");
@@ -141,15 +144,22 @@ var almacena = {
 		
 	},
 	
-	enviaAjax: function(informacion){
+	enviaAjax: function(informacion,imagen, observaciones){
 		$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
+				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/GuardaCG.php",
 				data: { 
 					datos: informacion,
+					observaciones: observaciones,
 					usu: window.localStorage.getItem("nombreUsuario")
 				}
 			}).done(function(mensaje){
+			if(mensaje != "0"){
+					file.transferir(imagen,informacion);
+				}else{
+					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+				}
+			
 		//alert("asigna mensaje "+mensaje);
 		almacena.resultado = mensaje;
 		almacena.db.transaction(function(tx){
