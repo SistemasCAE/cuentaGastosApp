@@ -58,7 +58,7 @@ var fn = {
 		}else{
 			$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/CursoAndroid/guardaCG.php",
+				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: datoEscaneado,
 					observaciones: observaciones
@@ -66,7 +66,7 @@ var fn = {
 			}).done(function(mensaje){
 				//alert("Datos enviados");
 				if(mensaje != "0"){
-					file.transferir(imagen);
+					file.transferir(imagen,datoEscaneado);
 				}else{
 					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
 				}
@@ -126,7 +126,7 @@ var fn = {
 		}else{
 			$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/CursoAndroid/compruebaSesion.php",
+				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/compruebaSesion.php",
 				data: { 
 					usu: usuario,
 					pass: password
@@ -158,7 +158,7 @@ var fn = {
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		$.ajax({
 			method: "POST",
-			url: "http://intranet.cae3076.com:50000/CursoAndroid/obtieneDatos.php",
+			url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/obtieneDatos.php",
 			data: { 
 				datos: datosLeidos,
 				usu: window.localStorage.getItem("nombreUsuario")
