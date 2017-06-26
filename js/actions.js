@@ -54,7 +54,7 @@ var fn = {
 			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, "", foto_tomada, observaciones);
 			window.location.href="#inicio";
 			$("#observaciones").val('');
-			$("#fotoTomadaRegistro").html('<img src="">');
+			$("#fotoTomadaRegistro").html('<img src="img/sin_imagen.jpg">');
 		}else{
 			$.ajax({
 				method: "POST",
