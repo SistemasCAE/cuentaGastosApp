@@ -115,26 +115,12 @@ var almacena = {
 				var est = res.rows.item(i).estado;
 				var img = res.rows.item(i).foto;
 				var obs = res.rows.item(i).observaciones;
-				if(est == ""){
-					est = "&nbsp;"
-				}
-				var vectorInfo = inf.trim().split("\n");
-				if(vectorInfo.length == 12){
-					var patente 	= vectorInfo[0].trim();
-					var pedimento 	= vectorInfo[1].trim();
-					if(patente.length != 4){
-						est = "Datos invalidos";
-					}
-					if(pedimento.length != 7){
-						est = "Datos invalidos";
-					}
-				}else{
-					est = "Datos invalidos";
-				}
-				if(est != "Datos invalidos"){
+				
 					almacena.enviaAjax(inf,img,obs);
 					
-				}
+				
+				
+				
 				//alert("Termina envio primero");
 			}
 			alert("Envío Finalizado");
