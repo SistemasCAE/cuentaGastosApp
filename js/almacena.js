@@ -80,7 +80,7 @@ var almacena = {
 		$("#popup").popup("open");
 		$("#popupfoto img").attr("src" , vector[0]);
 		$("#observaciones_mostrar").html(vector[1]);
-		window.plugins.toast.show(vector[1], 'long', 'center');
+		//window.plugins.toast.show(vector[1], 'long', 'center');
 	},
 	consultaDatosPendientes: function(){
 		if(networkInfo.estaConectado() == false){
