@@ -115,13 +115,13 @@ var almacena = {
 				var est = res.rows.item(i).estado;
 				var img = res.rows.item(i).foto;
 				var obs = res.rows.item(i).observaciones;
-				
+				//alert("enviando registros");
 				almacena.enviaAjax(inf,img,obs);
 					
 				
 				
 				
-				alert("enviando registros");
+				
 			}
 			//alert("Envío Finalizado");
 		}
@@ -131,10 +131,10 @@ var almacena = {
 	},
 	
 	enviaAjax: function(informacion,imagen, observaciones){
-	alert("llegue al envio");
+	//alert("llegue al envio");
 		$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/GuardaCG.php",
+				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					datos: informacion,
 					observaciones: observaciones,
