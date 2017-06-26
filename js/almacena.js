@@ -154,6 +154,7 @@ var almacena = {
 					usu: window.localStorage.getItem("nombreUsuario")
 				}
 			}).done(function(mensaje){
+			alert("en mensaje "+mensje);
 			if(mensaje != "0"){
 					file.transferir(imagen,informacion);
 				}else{
