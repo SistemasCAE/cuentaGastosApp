@@ -136,7 +136,7 @@ var almacena = {
 				method: "POST",
 				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
-					datos: informacion,
+					informacion: informacion,
 					observaciones: observaciones,
 					usu: window.localStorage.getItem("nombreUsuario")
 				}
