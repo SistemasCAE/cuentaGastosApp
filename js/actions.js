@@ -25,7 +25,7 @@ var fn = {
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
 	comprobarDatos: function(){
-		
+		alert("llegue comprobar datos");
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
 		var completo= $("#inicio select.completo").val();
@@ -46,11 +46,13 @@ var fn = {
 		}
 	},
 	enviarDatos: function(datoEscaneado, observaciones, imagen, completo){
+		alert("llegue enviar datos");
 		fn.quitarClases();
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
 			var foto_tomada = mc.tomada;
+			
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
 			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, completo, foto_tomada, observaciones);
 			window.location.href="#inicio";
