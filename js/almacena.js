@@ -60,7 +60,7 @@ var almacena = {
 				var img = res.rows.item(i).foto;
 				var obs = res.rows.item(i).observaciones;
 				
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td><a href='#' class='folio' urlImagen='"+img+"|"+obs+"'>"+inf+"</a></td><td>"+est+"</td></tr>";
+				resultado += "<tr class="+est+"><td>"+(i+1).toString()+"</td><td><a href='#' class='folio' urlImagen='"+img+"|"+obs+"'>"+inf+"</a></td><td>"+est+"</td></tr>";
 			}
 		}
 		$("#listaPendientes").html(resultado);
@@ -91,7 +91,7 @@ var almacena = {
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, observaciones, primary key(informacion))');
 
 		// LEER DEL HISTORIAL
-		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'"', [], almacena.enviarPendientes, null);
+		tx.executeSql('SELECT * FROM Pendientes WHERE usuario="'+window.localStorage.getItem("nombreUsuario")+'" AND estado != "Enviado"', [], almacena.enviarPendientes, null);
 	},
 
 	enviarPendientes: function(tx, res){
@@ -149,7 +149,7 @@ var almacena = {
 	
 	hacerUpdate: function(tx, informacion, mensaje){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS Pendientes (id INTEGER, usuario, informacion, estado, foto, observaciones, primary key(informacion))');
-		tx.executeSql('UPDATE Pendientes SET estado = "'+mensaje+'" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
+		tx.executeSql('UPDATE Pendientes SET estado = "Enviado" WHERE informacion= "'+informacion+'" AND usuario="'+window.localStorage.getItem("nombreUsuario")+'"');
 		almacena.cargarDatosPendientes();
 	},
 	
