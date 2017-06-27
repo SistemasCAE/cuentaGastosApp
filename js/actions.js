@@ -27,11 +27,14 @@ var fn = {
 	comprobarDatos: function(){
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
-		
+		var completo= $("#inicio select.completo").val();
 		var imagen = $("#fotoTomadaRegistro img").attr("src");
 		try{
 			if(datoEscaneado === undefined){
 				throw new Error("Favor de escanear el código");
+			}
+			if(completo == "- - - - -"){
+				throw new Error("No ha seleccionado Completo/Incompleto");
 			}
 			if(observaciones == ""){
 				throw new Error("No ha indicado ninguna observación");
@@ -71,11 +74,9 @@ var fn = {
 				if(mensaje != "0"){
 					file.transferir(imagen,datoEscaneado);
 				}else{
-					window.plugins.toast.show("Usuario/Contraseña invalido(s)", 'long', 'center');
+					window.plugins.toast.show("", 'long', 'center');
 				}
 
-
-				
 			}).fail(function(error){
 				alert(error.status);
 				alert(error.message);
