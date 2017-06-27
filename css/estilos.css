@@ -71,6 +71,10 @@ body{
 	font-weight: bold;
 }
 
+#observaciones_mostrar{
+	font-size: 14px;
+}
+
 
 .ui-popup-container,
 .ui-popup{
@@ -126,4 +130,12 @@ body{
 #cargando div img{
 	height: 95%;
 	
+}
+
+.Si{
+	background-color: #1E9805;
+}
+
+.No{
+	background-color: #BE0003;
 }
