@@ -59,15 +59,10 @@ var almacena = {
 				var est = res.rows.item(i).estado;
 				var img = res.rows.item(i).foto;
 				var obs = res.rows.item(i).observaciones;
-				if(est == ""){
-					est = "&nbsp;"
-				}
-				est='No Enviado';
-				resultado += "<tr><td>"+(i+1).toString()+"</td><td>"+usu+"</td><td><a href='#' class='folio' urlImagen='"+img+"|"+obs+"'>"+inf+"</a></td><td>"+est+"</td></tr>";
+				
+				resultado += "<tr><td>"+(i+1).toString()+"</td><td><a href='#' class='folio' urlImagen='"+img+"|"+obs+"'>"+inf+"</a></td><td>"+est+"</td></tr>";
 			}
 		}
-		//$("#informacion").removeClass("ui-table");
-		//$("#informacion").removeClass("ui-table-reflow");
 		$("#listaPendientes").html(resultado);
 		$("#folio1").tap(almacena.mostrarPopUp);
 		$(".folio").tap(almacena.mostrarPopUp);
@@ -80,7 +75,6 @@ var almacena = {
 		$("#popup").popup("open");
 		$("#popupfoto img").attr("src" , vector[0]);
 		$("#observaciones_mostrar").html(vector[1]);
-		//window.plugins.toast.show(vector[1], 'long', 'center');
 	},
 	consultaDatosPendientes: function(){
 		if(networkInfo.estaConectado() == false){
@@ -102,7 +96,7 @@ var almacena = {
 
 	enviarPendientes: function(tx, res){
 		var cantidad = res.rows.length;
-		var resultado = '<tr><td colspan="4">No hay entregas pendientes</td></tr>';
+		var resultado = '<tr><td colspan="3">No hay entregas pendientes</td></tr>';
 		//alert("Primer paso: " + cantidad.toString());
 		if(cantidad > 0){
 			// SI HAY RESERVAS EN EL HISTORIAL
@@ -116,11 +110,7 @@ var almacena = {
 				var img = res.rows.item(i).foto;
 				var obs = res.rows.item(i).observaciones;
 				//alert("enviando registros");
-				almacena.enviaAjax(inf,img,obs);
-					
-				
-				
-				
+				almacena.enviaAjax(inf,img,obs,est);
 				
 			}
 			//alert("Envío Finalizado");
@@ -130,18 +120,19 @@ var almacena = {
 		
 	},
 	
-	enviaAjax: function(informacion,imagen, observaciones){
+	enviaAjax: function(informacion,imagen, observaciones,estado){
 	//alert("llegue al envio");
 		$.ajax({
 				method: "POST",
 				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: informacion,
+					estado: estado,
 					observaciones: observaciones,
 					usu: window.localStorage.getItem("nombreUsuario")
 				}
 			}).done(function(mensaje){
-			alert("en mensaje "+mensaje);
+			//alert("en mensaje "+mensaje);
 			if(mensaje != "0"){
 					file.transferir(imagen,informacion);
 				}else{

@@ -50,8 +50,9 @@ var fn = {
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
 			var foto_tomada = mc.tomada;
+			var completo= $("#inicio select.completo").val();
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
-			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, "", foto_tomada, observaciones);
+			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, completo, foto_tomada, observaciones);
 			window.location.href="#inicio";
 			$("#observaciones").val('');
 			$("#fotoTomadaRegistro").html('<img src="img/sin_imagen.jpg">');
@@ -61,6 +62,7 @@ var fn = {
 				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: datoEscaneado,
+					estado: estado,
 					observaciones: observaciones
 				}
 			}).done(function(mensaje){
