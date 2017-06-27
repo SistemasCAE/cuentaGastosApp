@@ -28,6 +28,7 @@ var fn = {
 		
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
+		var completo= $("#inicio select.completo").val();
 		var imagen = $("#fotoTomadaRegistro img").attr("src");
 		try{
 			if(datoEscaneado === undefined){
@@ -39,18 +40,18 @@ var fn = {
 			if(imagen == "img/sin-imagen.jpg"){
 				throw new Error("No ha tomado ninguna foto");
 			}
-			fn.enviarDatos(datoEscaneado, observaciones, imagen);
+			fn.enviarDatos(datoEscaneado, observaciones, imagen, completo);
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
 	},
-	enviarDatos: function(datoEscaneado, observaciones, imagen){
+	enviarDatos: function(datoEscaneado, observaciones, imagen, completo){
 		fn.quitarClases();
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
 			var foto_tomada = mc.tomada;
-			var completo= $("#inicio select.completo").val();
+			
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
 			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, completo, foto_tomada, observaciones);
 			window.location.href="#inicio";
@@ -62,7 +63,7 @@ var fn = {
 				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: datoEscaneado,
-					estado: estado,
+					estado: completo,
 					observaciones: observaciones
 				}
 			}).done(function(mensaje){
