@@ -51,7 +51,6 @@ var fn = {
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
 			var foto_tomada = mc.tomada;
-			
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
 			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, completo, foto_tomada, observaciones);
 			window.location.href="#inicio";
@@ -64,8 +63,7 @@ var fn = {
 				data: { 
 					informacion: datoEscaneado,
 					estado: completo,
-					observaciones: observaciones,
-					usu: window.localStorage.getItem("nombreUsuario")
+					observaciones: observaciones
 				}
 			}).done(function(mensaje){
 				//alert("Datos enviados");
