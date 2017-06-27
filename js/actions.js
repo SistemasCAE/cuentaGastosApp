@@ -25,7 +25,6 @@ var fn = {
 		//window.localStorage.setItem("nombreUsuario", "adominguez");
 	},
 	comprobarDatos: function(){
-		alert("llegue comprobar datos");
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
 		
@@ -47,7 +46,6 @@ var fn = {
 	},
 	enviarDatos: function(datoEscaneado, observaciones, imagen){
 		var completo= $("#inicio select.completo").val();
-		alert("llegue enviar datos");
 		fn.quitarClases();
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
