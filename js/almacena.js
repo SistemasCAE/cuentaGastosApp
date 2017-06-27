@@ -113,10 +113,12 @@ var almacena = {
 				almacena.enviaAjax(inf,img,obs,est);
 				
 			}
-			else{
-				window.plugins.toast.show("No hay pendientes por enviar", 'long', 'center');
-			}
+			
 			//alert("Envío Finalizado");
+		}
+		else
+		{
+			window.plugins.toast.show("No hay pendientes por enviar", 'long', 'center');
 		}
 		//$("#informacion").removeClass("ui-table");
 		//$("#informacion").removeClass("ui-table-reflow");

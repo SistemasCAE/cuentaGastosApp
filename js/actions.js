@@ -65,7 +65,8 @@ var fn = {
 				data: { 
 					informacion: datoEscaneado,
 					estado: completo,
-					observaciones: observaciones
+					observaciones: observaciones,
+					usu: window.localStorage.getItem("nombreUsuario")
 				}
 			}).done(function(mensaje){
 				//alert("Datos enviados");
@@ -82,6 +83,8 @@ var fn = {
 				alert(error.message);
 				alert(error.responseText);
 			});
+			$("#observaciones").val('');
+			$("#fotoTomadaRegistro").html('<img src="img/sin_imagen.jpg">');
 		}
 		
 	},
