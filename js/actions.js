@@ -28,7 +28,7 @@ var fn = {
 		alert("llegue comprobar datos");
 		var datoEscaneado = bcs.escaneo;
 		var observaciones = $("#observaciones").val();
-		var completo= $("#inicio select.completo").val();
+		
 		var imagen = $("#fotoTomadaRegistro img").attr("src");
 		try{
 			if(datoEscaneado === undefined){
@@ -40,19 +40,19 @@ var fn = {
 			if(imagen == "img/sin-imagen.jpg"){
 				throw new Error("No ha tomado ninguna foto");
 			}
-			fn.enviarDatos(datoEscaneado, observaciones, imagen, completo);
+			fn.enviarDatos(datoEscaneado, observaciones, imagen);
 		}catch(error){
 			window.plugins.toast.show(error, 'short', 'center');
 		}
 	},
-	enviarDatos: function(datoEscaneado, observaciones, imagen, completo){
+	enviarDatos: function(datoEscaneado, observaciones, imagen){
+		var completo= $("#inicio select.completo").val();
 		alert("llegue enviar datos");
 		fn.quitarClases();
 		window.location.href="#cargando";
 		if(networkInfo.estaConectado() == false){
 			var escaneado = bcs.escaneo;
 			var foto_tomada = mc.tomada;
-			
 			window.plugins.toast.show("No existe conexión a internet, Datos almacenados localmente", 'long', 'center');
 			almacena.guardaPedimento(window.localStorage.getItem("nombreUsuario"),escaneado, completo, foto_tomada, observaciones);
 			window.location.href="#inicio";
