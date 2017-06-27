@@ -133,9 +133,9 @@ body{
 }
 
 .Si{
-	background-color:#C6FD94
+	
 }
 
 .No{
-	background-color:#F0595B
+	font-weight: bold;
 }
