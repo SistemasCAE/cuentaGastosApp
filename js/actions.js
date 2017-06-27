@@ -64,7 +64,8 @@ var fn = {
 				data: { 
 					informacion: datoEscaneado,
 					estado: completo,
-					observaciones: observaciones
+					observaciones: observaciones,
+					usu: window.localStorage.getItem("nombreUsuario")
 				}
 			}).done(function(mensaje){
 				//alert("Datos enviados");
