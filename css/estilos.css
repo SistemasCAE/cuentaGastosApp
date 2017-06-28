@@ -113,22 +113,13 @@ body{
 	width: 15%;
 }
 #cargando div{
-	position: absolute;
-	/*nos posicionamos en el centro del navegador*/
-	top: 50%;
-	left: 103px;
-	/*determinamos una anchura*/
 	width: 100%;
-	/*indicamos que el margen izquierdo, es la mitad de la anchura*/
-	margin-left: -100px;
-	/*determinamos una altura*/
 	height: 100%;
-	/*indicamos que el margen superior, es la mitad de la altura*/
-	margin-top: -100px;
 	
 }
 #cargando div img{
-	height: 95%;
+	height: 100%;
+	width: 100%;
 	
 }
 
