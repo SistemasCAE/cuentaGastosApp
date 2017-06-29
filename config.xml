@@ -16,7 +16,7 @@
        	
         <preference name="SplashScreenDelay" value="5000" />
 
-        <name>Control de Entgregas</name>
+        <name>Control de Entregas</name>
 		<description>
             Aplicación de para controlar la entrega de cuentas de gastos.
         </description>
