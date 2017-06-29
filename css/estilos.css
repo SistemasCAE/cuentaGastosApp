@@ -112,11 +112,9 @@ body{
 	margin-right: 10px;
 	width: 15%;
 }
-#cargando div{
-	margin-top: 50%;	
-	width: 100%;
-	height: 100%;
-	
+margin-top: 50%;{
+	width: auto;
+	height: auto;
 }
 #cargando div img{
 	height: 100%;
