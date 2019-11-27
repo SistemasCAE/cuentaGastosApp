@@ -23,6 +23,6 @@ var file = {
 			Connection: "close"
 		};
 		var ft = new FileTransfer();
-		ft.upload(fileURL, encodeURI("http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php"), file.exito, file.error, options);
+		ft.upload(fileURL, encodeURI("http://200.92.207.198:50081/ControlEntregas/Recibe/guardaCG.php"), file.exito, file.error, options);
 	}
 }
