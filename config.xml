@@ -9,7 +9,7 @@
       	<!--<preference name="phonegap-version" value="3.7.0" />-->
 		<platform name="android">
       		<preference name="phonegap-version" value="cli-9.0.0" />
-			<preference name="android-minSdkVersion" value="28" />
+			<!--<preference name="android-minSdkVersion" value="28" />-->
       	</platform>
        	
         <preference name="SplashScreenDelay" value="5000" />
