@@ -62,7 +62,7 @@ var fn = {
 		}else{
 			$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
+				url: "http://200.92.207.198:50081/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: datoEscaneado,
 					estado: completo,
@@ -137,7 +137,7 @@ var fn = {
 		}else{
 			$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/compruebaSesion.php",
+				url: "http://200.92.207.198:50081/ControlEntregas/Recibe/compruebaSesion.php",
 				data: { 
 					usu: usuario,
 					pass: password
@@ -169,7 +169,7 @@ var fn = {
 		//alert("Nombre: "+nombreR+" Email: "+emailR+" Telefono: "+telefonoR+" Password: "+passwordR+" Foto: "+fotoR);
 		$.ajax({
 			method: "POST",
-			url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/obtieneDatos.php",
+			url: "http://200.92.207.198:50081/ControlEntregas/Recibe/obtieneDatos.php",
 			data: { 
 				datos: datosLeidos,
 				usu: window.localStorage.getItem("nombreUsuario")
