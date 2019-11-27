@@ -47,7 +47,7 @@
         <gap:plugin name="cordova-plugin-x-toast" source="npm" />
         <gap:plugin name="cordova-plugin-splashscreen" source="npm"/>
         <gap:plugin name="cordova-plugin-media-capture" source="npm"/>
-        <gap:plugin name="org.apache.cordova.file-transfer" source="npm"/>
+        <gap:plugin name="cordova-plugin-file-transfer" source="npm"/>
 
         <access origin="*"/>
         <allow-intent href="*"/>
