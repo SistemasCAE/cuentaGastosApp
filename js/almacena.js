@@ -129,7 +129,7 @@ var almacena = {
 	//alert("llegue al envio");
 		$.ajax({
 				method: "POST",
-				url: "http://intranet.cae3076.com:50000/ControlEntregas/Recibe/guardaCG.php",
+				url: "http://200.92.207.198:50081/ControlEntregas/Recibe/guardaCG.php",
 				data: { 
 					informacion: informacion,
 					estado: estado,
