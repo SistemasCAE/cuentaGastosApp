@@ -7,6 +7,13 @@
 		<!-- versionCode is optional and Android only -->
 		
       	<!--<preference name="phonegap-version" value="3.7.0" />-->
+        <network-security-config>
+            <domain-config cleartextTrafficPermitted="true">
+                <domain includeSubdomains="true">http://200.92.207.198:50081</domain>
+            </domain-config>
+        </network-security-config>
+
+
 		<platform name="android">
       		<preference name="phonegap-version" value="cli-9.0.0" />
       	</platform>
