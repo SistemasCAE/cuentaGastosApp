@@ -18,7 +18,11 @@
             </edit-config>
         </platform>    
 
-
+        <network-security-config>
+            <domain-config cleartextTrafficPermitted="true">
+                <domain includeSubdomains="true">"http://200.92.207.198:50081"</domain>
+            </domain-config>
+        </network-security-config>
 
 
 		<platform name="android">
