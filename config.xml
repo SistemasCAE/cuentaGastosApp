@@ -11,13 +11,9 @@
       		<preference name="phonegap-version" value="cli-9.0.0" />
       	</platform>
 		
-		<!-- <preference name="android-minSdkVersion" value="28" />
+		<preference name="android-minSdkVersion" value="28" />
 		<preference name="android-targetSdkVersion" value="28" />
-		<preference name="android-maxgetSdkVersion" value="30" />-->
-
-        <preference name="android-minSdkVersion" value="19" />
-        <preference name="android-targetSdkVersion" value="28" />
- 
+		<preference name="android-maxgetSdkVersion" value="30" />
 		
         <preference name="SplashScreenDelay" value="5000" />
 		
