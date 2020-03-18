@@ -12,7 +12,7 @@
       	<!--<preference name="phonegap-version" value="3.7.0" />-->
         
 
-        <platform name="android">
+        <!--<platform name="android">
             <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
                 <application android:usesCleartextTraffic="true" />
             </edit-config>
@@ -22,8 +22,11 @@
             <domain-config cleartextTrafficPermitted="true">
                 <domain includeSubdomains="true">"http://200.92.207.198:50081"</domain>
             </domain-config>
-        </network-security-config>
+        </network-security-config>-->
 
+        <config-file platform="android" parent="/manifest" mode="merge">
+            <application android:usesCleartextTraffic="true" />
+        </config-file>
 
 		<platform name="android">
       		<preference name="phonegap-version" value="cli-9.0.0" />
