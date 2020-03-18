@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-    <widget xmlns = "http://www.w3.org/ns/widgets"
+    <widget xmlns   = "http://www.w3.org/ns/widgets" 
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.cae3076.cuentaGastosApp"
         version     = "2.1.0"
-        versionCode = "2.1" >
+        versionCode = "2.1" 
+        xmlns:android = "http://schemas.android.com/apk/res/android" 
+        xmlns:cdv = "http://cordova.apache.org/ns/1.0">
+
 		<!-- versionCode is optional and Android only -->
 		
       	<!--<preference name="phonegap-version" value="3.7.0" />-->
-        <network-security-config>
-            <domain-config cleartextTrafficPermitted="true">
-                <!--<domain includeSubdomains="true">http://200.92.207.198:50081</domain>-->
-            </domain-config>
-        </network-security-config>
+        
+
+        <platform name="android">
+            <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+                <application android:usesCleartextTraffic="true" />
+            </edit-config>
+        </platform>    
+
+
 
 
 		<platform name="android">
